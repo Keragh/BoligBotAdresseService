@@ -6,7 +6,7 @@
   xsi:type="MailApp">
   
   <!-- Basic add-in information -->
-  <Id>e1234567-89ab-cdef-0123-456789abcdef</Id>
+  <Id>580aa097-343c-4acd-8e0b-abd14b8da0ff</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>BoligBot</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>

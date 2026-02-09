@@ -1,7 +1,7 @@
 /* global Office */
 
-// Configuration
-const GEOCODE_API_URL = "https://localhost:3001/geocode";
+// Configuration - can be overridden by environment
+const GEOCODE_API_URL = window.location.protocol + '//' + window.location.host + '/geocode';
 
 // Initialize Office add-in
 Office.onReady((info) => {
@@ -132,8 +132,15 @@ async function geocodeAddress(address) {
     );
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || `HTTP error ${response.status}`);
+      let errorMessage = `HTTP error ${response.status}`;
+      try {
+        const errorData = await response.json();
+        errorMessage = errorData.message || errorMessage;
+      } catch (parseError) {
+        // Response is not JSON, use default error message
+        console.error("Error parsing error response:", parseError);
+      }
+      throw new Error(errorMessage);
     }
 
     const data = await response.json();
