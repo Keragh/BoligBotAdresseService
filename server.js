@@ -10,6 +10,9 @@ const geocodeRoutes = require("./mvc/routes/geocodeRoutes");
 const app = express();
 app.use(express.json());
 
+// Serve static files from outlook-addin directory
+app.use("/outlook-addin", express.static(path.join(__dirname, "outlook-addin")));
+
 // Use our routes
 app.use("/", geocodeRoutes);
 

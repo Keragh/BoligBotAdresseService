@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BoligBot Address Lookup</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="taskpane.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>BoligBot Address Lookup</h1>
+        <p class="subtitle">Extract and geocode addresses from emails</p>
+      </header>
+
+      <main>
+        <section class="controls">
+          <button id="extractButton" class="btn-primary">
+            Extract Address from Selection
+          </button>
+          <button id="extractBodyButton" class="btn-secondary">
+            Extract from Email Body
+          </button>
+        </section>
+
+        <section class="input-section">
+          <label for="addressInput">Or enter an address manually:</label>
+          <textarea
+            id="addressInput"
+            placeholder="Enter address here..."
+            rows="3"
+          ></textarea>
+          <button id="lookupButton" class="btn-primary">Lookup Address</button>
+        </section>
+
+        <section id="resultSection" class="result-section" style="display: none">
+          <h2>Results</h2>
+          <div id="loadingSpinner" class="spinner" style="display: none">
+            Looking up address...
+          </div>
+          <div id="resultContent"></div>
+        </section>
+
+        <section id="errorSection" class="error-section" style="display: none">
+          <h3>Error</h3>
+          <p id="errorMessage"></p>
+        </section>
+      </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="taskpane.js"></script>
+  </body>
+</html>
